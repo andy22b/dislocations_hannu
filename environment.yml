@@ -7,6 +7,8 @@ dependencies:
   - notebook
   - git
   - pip
+  - rasterio
+  - geopandas
   - pip:
     - src/mesh_tools
     - meshio
