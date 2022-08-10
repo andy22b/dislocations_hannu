@@ -1,0 +1,12 @@
+name: cutde-hannu
+channels:
+  - conda-forge
+dependencies:
+  - python=3.9
+  - cutde
+  - notebook
+  - git
+  - pip
+  - pip:
+    - src/mesh_tools
+    - meshio

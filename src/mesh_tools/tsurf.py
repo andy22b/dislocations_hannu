@@ -127,8 +127,14 @@ class tsurf(object):
                 self.AXIS_UNIT = self.default_AXIS_UNIT
 
             # Read points and cells
-            if not next(infile).startswith('TFACE'):
-                raise IOError('Only "TFACE" format TSurf files are supported')
+            num_lines = 2
+            while not line.startswith('TFACE'):
+                line = next(infile).strip()
+                if num_lines < 20:
+                    num_lines += 1
+                else:
+                    raise IOError('Only "TFACE" format TSurf files are supported ("TFACE" not in first 20 lines)')
+
             point_num, points, cellArray = [], [], []
             for line in infile:
                 line = line.strip().split()
